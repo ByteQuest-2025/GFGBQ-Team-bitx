@@ -1,0 +1,170 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* VeriFact AI Design System */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+@layer base {
+  :root {
+    --background: 210 20% 98%;
+    --foreground: 222 47% 11%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 222 47% 11%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 222 47% 11%;
+
+    --primary: 217 91% 60%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 210 40% 96%;
+    --secondary-foreground: 222 47% 11%;
+
+    --muted: 210 40% 96%;
+    --muted-foreground: 215 16% 47%;
+
+    --accent: 210 40% 96%;
+    --accent-foreground: 222 47% 11%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 214 32% 91%;
+    --input: 214 32% 91%;
+    --ring: 217 91% 60%;
+
+    --radius: 0.75rem;
+
+    /* VeriFact Status Colors */
+    --verified: 142 76% 36%;
+    --verified-foreground: 0 0% 100%;
+    --verified-light: 142 76% 95%;
+
+    --uncertain: 38 92% 50%;
+    --uncertain-foreground: 0 0% 100%;
+    --uncertain-light: 38 92% 95%;
+
+    --hallucinated: 0 84% 60%;
+    --hallucinated-foreground: 0 0% 100%;
+    --hallucinated-light: 0 84% 95%;
+
+    /* Trust Score */
+    --trust-high: 142 76% 36%;
+    --trust-medium: 38 92% 50%;
+    --trust-low: 0 84% 60%;
+
+    /* Sidebar */
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5% 26%;
+    --sidebar-primary: 217 91% 60%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 210 40% 96%;
+    --sidebar-accent-foreground: 222 47% 11%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 217 91% 60%;
+  }
+
+  /* Academic-friendly dark mode - optimized for extended reading */
+  .dark {
+    --background: 220 20% 10%;
+    --foreground: 45 20% 90%;
+
+    --card: 220 18% 13%;
+    --card-foreground: 45 20% 90%;
+
+    --popover: 220 18% 13%;
+    --popover-foreground: 45 20% 90%;
+
+    --primary: 210 70% 55%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 220 15% 20%;
+    --secondary-foreground: 45 20% 90%;
+
+    --muted: 220 15% 18%;
+    --muted-foreground: 220 10% 60%;
+
+    --accent: 220 15% 20%;
+    --accent-foreground: 45 20% 90%;
+
+    --destructive: 0 55% 45%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 220 15% 22%;
+    --input: 220 15% 22%;
+    --ring: 210 70% 55%;
+
+    /* VeriFact Status Colors - Dark (softer for eye comfort) */
+    --verified: 145 55% 45%;
+    --verified-foreground: 0 0% 100%;
+    --verified-light: 145 30% 18%;
+
+    --uncertain: 40 70% 50%;
+    --uncertain-foreground: 0 0% 10%;
+    --uncertain-light: 40 30% 18%;
+
+    --hallucinated: 0 55% 50%;
+    --hallucinated-foreground: 0 0% 100%;
+    --hallucinated-light: 0 30% 18%;
+
+    /* Sidebar - Dark */
+    --sidebar-background: 220 20% 8%;
+    --sidebar-foreground: 45 20% 90%;
+    --sidebar-primary: 210 70% 55%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 220 15% 18%;
+    --sidebar-accent-foreground: 45 20% 90%;
+    --sidebar-border: 220 15% 22%;
+    --sidebar-ring: 210 70% 55%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+    font-family: 'Inter', system-ui, sans-serif;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-semibold tracking-tight;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .gradient-primary {
+    background: linear-gradient(135deg, hsl(var(--primary)) 0%, hsl(217 91% 50%) 100%);
+  }
+
+  .gradient-trust {
+    background: conic-gradient(
+      hsl(var(--verified)) var(--trust-percentage, 85%),
+      hsl(var(--muted)) var(--trust-percentage, 85%)
+    );
+  }
+
+  .highlight-verified {
+    background-color: hsl(var(--verified-light));
+    border-bottom: 2px solid hsl(var(--verified));
+  }
+
+  .highlight-uncertain {
+    background-color: hsl(var(--uncertain-light));
+    border-bottom: 2px solid hsl(var(--uncertain));
+  }
+
+  .highlight-hallucinated {
+    background-color: hsl(var(--hallucinated-light));
+    border-bottom: 2px solid hsl(var(--hallucinated));
+  }
+}
